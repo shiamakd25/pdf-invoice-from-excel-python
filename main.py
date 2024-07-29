@@ -13,7 +13,10 @@ for file in files:
 
     file_name = Path(file).stem
     invoice_num = file_name.split("-")[0]
+    date=file_name.split("-")[1]
 
     pdf.set_font(family="Times", size=16, style="B")
-    pdf.cell(w=50, h=8, txt=f"Invoice Number {invoice_num}")
+    pdf.cell(w=50, h=8, txt=f"Invoice Number {invoice_num}", ln=1)
+    pdf.cell(w=50, h=8, txt=f"Date: {date}", ln=1)
+
     pdf.output(f"pdfs/{file_name}.pdf")
